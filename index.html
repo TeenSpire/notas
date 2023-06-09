@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Estilos para el botón */
+    .note-buttons button {
+      background-color: lightblue; /* Cambiar a celeste claro */
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    /* Estilos para el botón Eliminar */
+    .delete-note {
+      background-color: sky blue;
+    }
+
+    /* Estilos para el botón Completada */
+    .complete-note {
+      background-color: sky blue; /* Cambiar a celeste claro */
+    }
+
+    /* Estilos para el botón Editar */
+    .edit-note {
+      background-color: sky blue; /* Cambiar a celeste claro */
+    }
+
+    /* Estilos para el botón Completar */
+    .active {
+      background-color: sky blue; /* Cambiar a celeste claro */
+    }
+  </style>
+</head>
+<body>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Agenda Interactiva con Notas Bonitas</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive;
+      background-color: #F4F4F4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+
+    .note {
+      position: relative;
+      background-color: #FFFFFF;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+
+    .note h2 {
+      color: #333333;
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    .note p {
+      color: #666666;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .note-buttons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .note-buttons button {
+      margin-left: 5px;
+    }
+
+    .note-input {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .note-input input {
+      flex: 1;
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .note-input button {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #FFC107;
+      color: #FFFFFF;
+      cursor: pointer;
+    }
+
+    .note-list-item {
+      background-color: #FFFFFF;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    /* Nueva regla CSS para el estado completado */
+    .completed {
+      background-color: #a4fff7;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Notas</h1>
+  <h2>Agregar Nota</h2>
+  <div class="note-input">
+    <input type="text" id="note-input" placeholder="Ingrese una nota" onkeydown="handleNoteInput(event)">
+    <button onclick="addNote()">Agregar</button>
+  </div>
+
+  <h2>Lista de Notas</h2>
+  <div class="note-list" id="note-list">
+    <!-- Aquí se agregarán las notas dinámicamente -->
+  </div>
+
+  <div class="note">
+    <div class="note-buttons">
+      <button class="delete-note">Eliminar</button>
+      <button class="complete-note">Completada</button>
+      <button class="edit-note">Editar</button>
+    </div>
+    <h2>Nota 1</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nibh a dapibus fermentum.</p>
+  </div>
+
+  <div class="note">
+    <div class="note-buttons">
+      <button class="delete-note">Eliminar</button>
+      <button class="complete-note">Completada</button>
+      <button class="edit-note">Editar</button>
+    </div>
+    <h2>Nota 2</h2>
+    <p>Donec at nisi vestibulum, rhoncus tellus sed, fermentum ex. Fusce ullamcorper interdum libero, id faucibus arcu tincidunt ac.</p>
+  </div>
+
+  <div class="note">
+    <div class="note-buttons">
+      <button class="delete-note">Eliminar</button>
+      <button class="complete-note">Completada</button>
+      <button class="edit-note">Editar</button>
+    </div>
+    <h2>Nota 3</h2>
+    <p>Quisque malesuada magna eget dignissim posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+  </div>
+  <div class="note">
+    <div class="note-buttons">
+      <button class="delete-note">Eliminar</button>
+      <button class="complete-note">Completada</button>
+      <button class="edit-note">Editar</button>
+    </div>
+    <h2>Nota 3</h2>
+    <p>Quisque malesuada magna eget dignissim posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+  </div>
+  <div class="note">
+    <div class="note-buttons">
+      <button class="delete-note">Eliminar</button>
+      <button class="complete-note">Completada</button>
+      <button class="edit-note">Editar</button>
+    </div>
+    <h2>Nota 3</h2>
+    <p>Quisque malesuada magna eget dignissim posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+  </div>
+  <div class="note">
+    <div class="note-buttons">
+      <button class="delete-note">Eliminar</button>
+      <button class="complete-note">Completada</button>
+      <button class="edit-note">Editar</button>
+    </div>
+    <h2>Nota 3</h2>
+    <p>Quisque malesuada magna eget dignissim posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+  </div>
+
+
+  <script>
+    // Obtener todas las notas
+    const notes = document.querySelectorAll('.note');
+
+    // Agregar evento click a cada nota para eliminarla
+    notes.forEach(note => {
+      const deleteButton = note.querySelector('.delete-note');
+      deleteButton.addEventListener('click', () => {
+        note.remove();
+      });
+
+      const completeButton = note.querySelector('.complete-note');
+      completeButton.addEventListener('click', () => {
+        note.classList.toggle('completed');
+      });
+
+      const editButton = note.querySelector('.edit-note');
+      const noteContent = note.querySelector('p');
+      const noteInput = document.createElement('input');
+      noteInput.classList.add('edit-input');
+
+      editButton.addEventListener('click', () => {
+        if (editButton.innerText === 'Editar') {
+          editButton.innerText = 'Guardar';
+          noteInput.value = noteContent.innerText;
+          noteContent.replaceWith(noteInput);
+        } else {
+          editButton.innerText = 'Editar';
+          noteContent.innerText = noteInput.value;
+          noteInput.replaceWith(noteContent);
+        }
+      });
+    });
+    
+    function handleNoteInput(event) {
+      if (event.key === 'Enter') {
+        addNote();
+      }
+    }
+    
+    function addNote() {
+      var noteInput = document.getElementById('note-input');
+      var noteList = document.getElementById('note-list');
+
+      if (noteInput.value !== '') {
+        var noteItem = document.createElement('div');
+        noteItem.classList.add('note-list-item');
+        var noteContent = document.createElement('p');
+        noteContent.innerText = noteInput.value;
+        noteItem.appendChild(noteContent);
+
+        var deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-note');
+        deleteButton.innerText = 'Eliminar';
+        deleteButton.addEventListener('click', () => {
+          noteItem.remove();
+        });
+        noteItem.appendChild(deleteButton);
+
+        var editButton = document.createElement('button');
+        editButton.classList.add('edit-note');
+        editButton.innerText = 'Editar';
+        editButton.addEventListener('click', () => {
+          if (editButton.innerText === 'Editar') {
+            editButton.innerText = 'Guardar';
+            var noteInput = document.createElement('input');
+            noteInput.classList.add('edit-input');
+            noteInput.value = noteContent.innerText;
+            noteContent.replaceWith(noteInput);
+          } else {
+            editButton.innerText = 'Editar';
+            noteContent.innerText = noteInput.value;
+            noteInput.replaceWith(noteContent);
+          }
+        });
+        noteItem.appendChild(editButton);
+
+        noteList.appendChild(noteItem);
+        noteInput.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
